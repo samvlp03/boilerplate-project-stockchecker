@@ -5,7 +5,7 @@ const server = require('../server');
 
 chai.use(chaiHttp);
 
-const expect = chai.expect;
+ const expect = chai.expect;
 
 suite('Functional Tests', function() {
 	let likeAgent;
