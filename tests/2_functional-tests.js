@@ -67,6 +67,4 @@ suite('Functional Tests', function() {
 		expect(res.body.stockData[1]).to.have.property('rel_likes');
 	});
 });
-suite('Functional Tests', function() {
-
-});
+// ...existing code...
