@@ -1,4 +1,8 @@
 'use strict';
+const helmet = require('helmet');
+const xss = require('xss-clean');
+
+// ...existing code...
 require('dotenv').config();
 const express     = require('express');
 const bodyParser  = require('body-parser');
@@ -14,8 +18,13 @@ app.use('/public', express.static(process.cwd() + '/public'));
 
 app.use(cors({origin: '*'})); //For FCC testing purposes only
 
+app.use(helmet());
+app.use(xss());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+// ...existing code...
+
+//404 Not Found Middleware
 
 //Index page (static HTML)
 app.route('/')
