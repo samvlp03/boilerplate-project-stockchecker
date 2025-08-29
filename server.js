@@ -28,7 +28,7 @@ app.use(
       connectSrc: ["'self'"],
       fontSrc: ["'self'"],
       objectSrc: ["'none'"],
-      upgradeInsecureRequests: [],
+  upgradeInsecureRequests: true,
     },
   })
 );
