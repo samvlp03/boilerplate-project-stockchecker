@@ -51,9 +51,11 @@ suite('Functional Tests', function() {
 		expect(res.body.stockData[0]).to.have.property('stock');
 		expect(res.body.stockData[0]).to.have.property('price');
 		expect(res.body.stockData[0]).to.have.property('rel_likes');
+		expect(res.body.stockData[0]).to.not.have.property('likes');
 		expect(res.body.stockData[1]).to.have.property('stock');
 		expect(res.body.stockData[1]).to.have.property('price');
 		expect(res.body.stockData[1]).to.have.property('rel_likes');
+		expect(res.body.stockData[1]).to.not.have.property('likes');
 	});
 
 	test('Viewing two stocks and liking them: GET request to /api/stock-prices/', async function() {
@@ -64,7 +66,9 @@ suite('Functional Tests', function() {
 		expect(res).to.have.status(200);
 		expect(res.body.stockData).to.be.an('array').with.lengthOf(2);
 		expect(res.body.stockData[0]).to.have.property('rel_likes');
+		expect(res.body.stockData[0]).to.not.have.property('likes');
 		expect(res.body.stockData[1]).to.have.property('rel_likes');
+		expect(res.body.stockData[1]).to.not.have.property('likes');
 	});
 });
 // ...existing code...

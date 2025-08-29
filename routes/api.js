@@ -60,10 +60,22 @@ module.exports = function (app) {
       if (results.length === 1) {
         return res.json({ stockData: results[0] });
       } else {
-        // Calculate relative likes
-        results[0].rel_likes = results[0].likes - results[1].likes;
-        results[1].rel_likes = results[1].likes - results[0].likes;
-        return res.json({ stockData: results });
+        // Calculate relative likes and format response
+        const relLikesA = results[0].likes - results[1].likes;
+        const relLikesB = results[1].likes - results[0].likes;
+        const formatted = [
+          {
+            stock: results[0].stock,
+            price: results[0].price,
+            rel_likes: relLikesA
+          },
+          {
+            stock: results[1].stock,
+            price: results[1].price,
+            rel_likes: relLikesB
+          }
+        ];
+        return res.json({ stockData: formatted });
       }
     });
     
